@@ -1,7 +1,13 @@
+import Header from "../components/dashboard/header/Header";
+import DisplayContainer from "../components/dashboard/display/DisplayContainer";
+import Nav from "../components/dashboard/nav/Nav";
+
 function Dashboard() {
   return (
     <div>
-      <h1>Dashboard Page</h1>
+      <Header/>
+      <Nav />
+      <DisplayContainer/>
     </div>
   )
 }

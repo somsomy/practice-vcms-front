@@ -1,7 +1,14 @@
+import LoginForm from "../components/login/LoginForm";
+import {Link} from "react-router-dom";
+import useStyles from "../assets/style/login";
+
 function Login() {
+  const classes = useStyles();
+
   return (
-    <div>
-      <h1>Login Page</h1>
+    <div className={classes.paper}>
+      <LoginForm />
+      <Link to="/join">회원가입</Link>
     </div>
   )
 }

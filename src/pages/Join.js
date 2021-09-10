@@ -1,7 +1,10 @@
+import JoinForm from "../components/join/JoinForm";
+
 function Join() {
+
   return (
     <div>
-      <h1>Join Page</h1>
+      <JoinForm />
     </div>
   )
 }
