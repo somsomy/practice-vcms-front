@@ -1,14 +1,14 @@
-import {AppBar} from "@material-ui/core";
-import RightMenu from "./right-menu/RightMenu";
+import HeaderMenu from "./menu/HeaderMenu";
+
+
 function Header() {
+
   return (
-    <header>
-      <AppBar position="static">
-        <div style={{display: "flex", justifyContent: "space-between", margin: "5px"}}>
-          <div>로고</div>
-          <RightMenu />
-        </div>
-      </AppBar>
+    <header id="header">
+      <div className="header_top">
+        <h1 className="logo"><a href="/">Yonsei Univ. <strong>MDDU</strong></a></h1>
+        <HeaderMenu />
+      </div>
     </header>
   )
 }

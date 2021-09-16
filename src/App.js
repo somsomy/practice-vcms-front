@@ -1,4 +1,7 @@
-import './assets/css/App.css';
+import './assets/css/common.css'
+import './assets/css/layout.css'
+import './assets/vendor/fontawesome/css/all.min.css'
+
 import {Route, Switch} from "react-router-dom";
 import Login from "./pages/Login";
 import Join from "./pages/Join";

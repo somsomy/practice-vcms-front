@@ -1,10 +1,10 @@
 import Header from "../components/dashboard/header/Header";
-import DisplayContainer from "../components/dashboard/display/DisplayContainer";
+import DisplayContainer from "../components/dashboard/main/DisplayContainer";
 import Nav from "../components/dashboard/nav/Nav";
 
 function Dashboard() {
   return (
-    <div>
+    <div id="warp">
       <Header/>
       <Nav />
       <DisplayContainer/>
