@@ -10,7 +10,7 @@
 #main .row .col {
   @for $i from 1 through 8 {
     &.col#{$i} {
-      @include cols(120px, $i)
+      @include cols(119px, $i)
     }
   }
 }
@@ -29,15 +29,15 @@ $spanHeight: 40px;
   @if $name == "h2" {
     @return $h2Height - $n;
   } @else if $name == "h3" {
-    @return $h3Height - ($n + 4);
+    @return $h3Height - ($n + 6);
   } @else {
-    @return $spanHeight - ($n * 3);
+    @return $spanHeight - ($n * 3) + 4;
   }
 }
 
 $defaultHeight: 66px;
 @function height($n) {
-  @return $defaultHeight - ($n * 4 + ($n - 6));
+  @return $defaultHeight - ($n * 4 + ($n - 5));
 }
 
 @function fontSize($n) {
@@ -51,19 +51,24 @@ $defaultHeight: 66px;
   @if $n < 7 {
     @return 1rem;
   }
-  @return 0.7rem;
+  @return 0.6rem;
 }
 
 .box_patient {
   @for $i from 5 through 8 {
     &.row#{$i} {
       h2 {
-        @include rows(rowHeight("h2", $i), fontSize($i))
+        @include rows(rowHeight("h2", $i), fontSize($i));
+        padding-left: 5px;
       }
 
       .cate {
         .col_box {
-          height: height($i);
+          height: 94px;
+
+          .graph_box {
+            height: 20px;
+          }
 
           h3 {
             @include rows(rowHeight("h3", $i), fontSize($i))
@@ -80,20 +85,43 @@ $defaultHeight: 66px;
   }
 }
 
-@media all and (max-width: 1680px) {
-  #main .row .col.col8 {
-    flex-basis: 20%
+$font: 20rem;
+
+@function noneFont($n) {
+  @if ($n == 6) {
+    @return 0.8rem;
+  } @else if ($n == 8) {
+    @return 0.5rem;
+  }
+  @return 1.25rem;
+}
+
+.box_none {
+  @for $i from 2 through 8 {
+    &.row#{$i} {
+      h2 {
+        font-size: noneFont($i);
+        margin-bottom: 20px;
+      }
+
+      .btn_admit {
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 0.7rem;
+      }
+    }
   }
 }
 
-@media all and (max-width: 1200px) {
-  #main .row .col.col8 {
-    flex-basis: 33.33%
-  }
+@media all and (max-width: 1750px) {
+  #main .row .col.col8 {flex-basis: 16.5%}
 }
 
-@media all and (max-width: 640px) {
-  #main .row .col.col8 {
-    flex-basis: 50%
-  }
+@media all and (max-width: 1350px) {
+  #main .row .col.col8 {flex-basis: 25%}
+}
+
+@media all and (max-width: 800px) {
+  #main .row .col.col8 {flex-basis: 50%}
 }
