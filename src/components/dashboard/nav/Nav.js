@@ -14,7 +14,6 @@ function Nav() {
           <li><a href="#">Auto Display</a></li>
           <li><a href="#">Display Settings</a></li>
           <li><a href="#">Network Settings</a></li>
-          <li><button disabled>############</button></li>
         </ul>
       </div>
     </nav>
