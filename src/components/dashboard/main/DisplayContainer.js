@@ -3,12 +3,12 @@ import {useState} from "react";
 import NoneDisplay from "./display/NoneDisplay";
 
 const arr = [
-  "3X3",
-  "4X2", "4X3", "4X4",
-  "5X2", "5X3", "5X5",
-  "6X2", "6X3", "6X6",
-  "7X3", "7X7",
-  "8X3", "8X4", "8X5", "8X6", "8X7", "8X8"
+  "3X2",
+  "4X2", "4X4",
+  "5X2", "5X4",
+  "6X4", "6X6",
+  "7X4", "7X6",
+  "8X4", "8X6", "8X8"
 ]
 
 function DisplayContainer() {

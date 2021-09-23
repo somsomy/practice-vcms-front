@@ -3,81 +3,30 @@
   flex-basis: flexBasis($flexBasis);
 }
 
-@function flexBasis($n) {
-  @return 100% / $n;
-}
+@function flexBasis($n) {@return 100% / $n;}
 
 #main .row .col {
-  @for $i from 1 through 8 {
-    &.col#{$i} {
-      @include cols(119px, $i)
-    }
+  @for $i from 2 through 8 {
+    &.col#{$i} {@include cols(119px, $i)}
   }
-}
-
-@mixin rows($height, $fontSize) {
-  height: $height;
-  line-height: $height;
-  font-size: $fontSize;
-}
-
-$h2Height: 30px;
-$h3Height: 26px;
-$spanHeight: 40px;
-
-@function rowHeight($name, $n) {
-  @if $name == "h2" {
-    @return $h2Height - $n;
-  } @else if $name == "h3" {
-    @return $h3Height - ($n + 6);
-  } @else {
-    @return $spanHeight - ($n * 3) + 4;
-  }
-}
-
-$defaultHeight: 66px;
-@function height($n) {
-  @return $defaultHeight - ($n * 4 + ($n - 5));
 }
 
 @function fontSize($n) {
-  @if $n < 7 {
-    @return 0.8rem;
-  }
-  @return 0.4rem;
-}
-
-@function fontSize2($n) {
-  @if $n < 7 {
-    @return 1rem;
-  }
+  @if ($n == 6) {@return 1rem}
+  @else if($n == 7) {@return 0.8rem}
   @return 0.6rem;
 }
 
 .box_patient {
   @for $i from 5 through 8 {
     &.row#{$i} {
-      h2 {
-        @include rows(rowHeight("h2", $i), fontSize($i));
-        padding-left: 5px;
-      }
-
+      h2 {height: 20px;line-height: 18px;font-size: 0.4rem;}
       .cate {
-        .col_box {
-          height: 94px;
-
-          .graph_box {
-            height: 20px;
-          }
-
-          h3 {
-            @include rows(rowHeight("h3", $i), fontSize($i))
-          }
-
-          .col_3 {
-            span {
-              @include rows(rowHeight("span", $i), fontSize2($i))
-            }
+        .col_box {height: calc(100vh / #{$i} - 45px);min-height: 80px;
+          .graph_box {height: calc(100% / 3 - 13px);min-height: 18px;}
+          h3 {height: 13px;line-height: 13px;font-size: 0.6rem;}
+          .col_3 {height: calc(100% / 3);min-height: 31px;
+            span {height: 16px;line-height: 16px;font-size: fontSize($i);}
           }
         }
       }
@@ -114,14 +63,20 @@ $font: 20rem;
   }
 }
 
-@media all and (max-width: 1750px) {
-  #main .row .col.col8 {flex-basis: 16.5%}
+@media all and (max-width: 1680px) {
+  #main .row .col.col8 {
+    flex-basis: 16.5%
+  }
 }
 
-@media all and (max-width: 1350px) {
-  #main .row .col.col8 {flex-basis: 25%}
+@media all and (max-width: 1200px) {
+  #main .row .col.col8 {
+    flex-basis: 25%
+  }
 }
 
-@media all and (max-width: 800px) {
-  #main .row .col.col8 {flex-basis: 50%}
+@media all and (max-width: 640px) {
+  #main .row .col.col8 {
+    flex-basis: 50%
+  }
 }
