@@ -1,10 +1,6 @@
-import {useHistory} from "react-router-dom";
-import {Button, TextField} from "@material-ui/core";
-import useStyles from "../../assets/style/login";
-import logo from "../../assets/images/logo.png";
+import {Link, useHistory} from "react-router-dom";
 
 function LoginForm() {
-  const classes = useStyles();
   const history = useHistory();
 
   const onSubmit = e => {
@@ -14,17 +10,28 @@ function LoginForm() {
   }
 
   return (
-    <div>
-      <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-        <img src={logo} alt="logo"/>
-        <span>Login</span>
+    <body className="lbg">
+    <main className="auth">
+      <div className="header_top">
+        <h1 className="logo"><a href="/">Yonsei Univ. <strong>MDDU</strong></a></h1>
       </div>
-      <form className={classes.form} onSubmit={onSubmit}>
-        <TextField label="ID" variant="outlined" margin="normal" required autoFocus/>
-        <TextField type="password" label="Password" variant="outlined" margin="normal" required/>
-        <Button type="submit" variant="contained" color="primary" className={classes.button}>Login</Button>
+      <form className="auth-form" onSubmit={onSubmit}>
+        <div className="auth_top">LOGIN<Link to="/join">회원가입</Link></div>
+        <div className="form-group">
+          <label htmlFor="user">사용자명</label>
+          <input type="text" id="user" placeholder="사용자명"/>
+        </div>
+        <div className="form-group">
+          <label htmlFor="pass">비밀번호</label>
+          <input type="password" id="pass" placeholder="비밀번호"/>
+        </div>
+        <div className="form-group">
+          <span class="error_next_box">입력된 로그인 정보가 올바르지 않습니다.</span>
+          <button className="btn_login" type="submit">LOGIN</button>
+        </div>
       </form>
-    </div>
+    </main>
+    </body>
   )
 }
 
