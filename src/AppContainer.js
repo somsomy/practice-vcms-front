@@ -7,12 +7,13 @@ import {DisplayProvider} from "./components/dashboard/nav/popups/context/display
 function AppContainer() {
   return (
     <BrowserRouter>
-      <DisplayProvider>
-        <ModalProvider>
+      <ModalProvider>
+        <DisplayProvider>
           <Modal/>
           <App/>
-        </ModalProvider>
-      </DisplayProvider>
+        </DisplayProvider>
+      </ModalProvider>
+
     </BrowserRouter>
   )
 }

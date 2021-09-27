@@ -1,9 +1,7 @@
 import VentDisplay from "./display/VentDisplay";
-import {useContext} from "react";
-import {DisplayContext} from "../nav/popups/context/displayContext";
 
-function DisplayContainer() {
-  const {row, col} = useContext(DisplayContext).displayArray;
+function DisplayContainer({displayArray}) {
+  const {row, col} = displayArray;
 
   return (
     <main id="main">
