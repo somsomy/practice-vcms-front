@@ -1,10 +1,6 @@
-import useStyles from "../../assets/style/login";
 import {useHistory} from "react-router-dom";
-import {Button, Grid, TextField} from "@material-ui/core";
-import logo from "../../assets/images/logo.png";
 
 function JoinForm() {
-  const classes = useStyles();
   const history = useHistory();
 
   const onSubmit = e => {
@@ -14,52 +10,79 @@ function JoinForm() {
   }
 
   return (
-    <div className={classes.paper}>
-      <div>
-        <img src={logo} alt="logo"/>
-        <span>Join</span>
+    <body className="lbg">
+    <main className="auth_join">
+      <div className="header_top">
+        <h1 className="logo"><a href="/">Yonsei Univ. <strong>MDDU</strong></a></h1>
       </div>
-      <form className={classes.form} onSubmit={onSubmit}>
-        <Grid container alignItems="center" spacing={1}>
-          <Grid item xs={9}>
-            <TextField fullWidth label="아이디" variant="outlined" margin="normal" required autoFocus/>
-          </Grid>
-          <Grid item xs={3}>
-            <Button fullWidth variant="contained" color="primary">중복확인</Button>
-          </Grid>
-        </Grid>
-        <TextField type="password" label="비밀번호" variant="outlined" margin="normal" required/>
-        <TextField label="비밀번호 확인" variant="outlined" margin="normal" required/>
-        <Grid container spacing={1}>
-          <Grid item>
-            <TextField label="이름" variant="outlined" margin="normal" required/>
-          </Grid>
-          <Grid item>
-            <TextField label="직급" variant="outlined" margin="normal" required/>
-          </Grid>
-        </Grid>
-        <TextField label="이메일" variant="outlined" margin="normal" required/>
-        <Grid container spacing={1}>
-          <Grid item>
-            <TextField label="연락처" variant="outlined" margin="normal" required/>
-          </Grid>
-          <Grid item>
-            <TextField label="휴대번호" variant="outlined" margin="normal"/>
-          </Grid>
-        </Grid>
-        <TextField label="부서" variant="outlined" margin="normal" required/>
-        <Grid container spacing={3}>
-          <Grid item xs={6}>
-            <Button fullWidth type="submit" variant="contained" color="primary" margin
-                    className={classes.button}>회원가입</Button>
-          </Grid>
-          <Grid item xs={6}>
-            <Button fullWidth type="reset" variant="outlined" color="primary" className={classes.button}>취소</Button>
-          </Grid>
-        </Grid>
+      <form className="auth-form" onSubmit={onSubmit}>
+        <div className="auth_top">회원가입</div>
+        <div className="form-group">
+          <label htmlFor="user">아이디</label>
+          <div className="user_box">
+          <span className="id_box">
+            <input type="text" id="user" placeholder="아이디" />
+            <span className="lbl txt_red">사용불가</span>
+          </span>
+            <a href="#" className="id_btn">중복확인</a>
+          </div>
+          <span className="error_next_box">중복된 아이디입니다.</span>
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">비밀번호</label>
+          <span className="ps_box">
+          <input type="password" id="password" placeholder="비밀번호" />
+          <span className="lbl txt_red">사용불가</span>
+        </span>
+          <span className="error_next_box">8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.</span>
+        </div>
+        <div className="form-group">
+          <label htmlFor="password2">비밀번호 확인</label>
+          <span className="ip_box">
+          <input type="password" id="password2" placeholder="비밀번호 확인" />
+          <span className="lbl txt_green">일치합니다.</span>
+        </span>
+        </div>
+        <div className="form-group">
+          <label htmlFor="name">이름</label>
+          <input type="text" id="name" placeholder="이름" />
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">이메일</label>
+          <span className="ip_box">
+          <input type="text" id="email" placeholder="이메일 주소" />
+          <span className="lbl txt_green">정상</span>
+        </span>
+        </div>
+        <div className="form-group">
+          <label htmlFor="tel1">전화번호</label>
+          <span className="ip_box">
+          <input type="text" id="tel1" placeholder="- 없이 숫자만 입력" />
+          <span className="lbl"></span>
+        </span>
+        </div>
+        <div className="form-group">
+          <label htmlFor="tel2">휴대전화번호</label>
+          <span className="ip_box">
+          <input type="text" id="tel2" placeholder="- 없이 숫자만 입력" />
+          <span className="lbl"></span>
+        </span>
+        </div>
+        <div className="form-group">
+          <label htmlFor="part">부서</label>
+          <input type="text" id="part" placeholder="부서" />
+        </div>
+        <div className="form-group">
+          <label htmlFor="rank">직급</label>
+          <input type="text" id="rank" placeholder="직급" />
+        </div>
+        <div className="form-group">
+          <button className="btn_join" type="submit">회원가입</button>
+          <button className="btn_back" type="submit">취소</button>
+        </div>
       </form>
-    </div>
-
+    </main>
+    </body>
   )
 }
 

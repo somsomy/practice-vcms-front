@@ -1,0 +1,23 @@
+.modal-container {position:fixed;top:0;left:0;z-index:10;display:none;justify-content:center;align-items:center;width:100%;height:100%;background:rgba(0,0,0,0.6);cursor:default}
+.modal-container:target {display:flex}
+.modal {min-width:470px;padding:0;border-radius:5px;background:#192131;box-shadow:rgba(0, 0, 0, 0.3) 0px 0px 100px 0px;position:relative;overflow:hidden}
+.modal_title {font-size:1rem;background:#222c3f;display:block;text-align:center;border-bottom:1px solid #2f3b52;font-weight:400;padding:16px 0}
+.modal_con {overflow:hidden;padding:25px 20px}
+.modal_bottom {overflow:hidden;text-align:center;padding:10px 0 20px}
+.modal_text {font-size:1rem;text-align:center}
+.modal_btn {margin-top:20px;padding:8px 16px;border-radius:3px;color:#fff;background:#2f3b52;font-size:.875rem;transition:.2s;cursor:pointer;margin:0 3px}
+.modal_btn:hover,.modal__btn:focus {background:#1f8efa}
+.m_close {width:24px;height:24px;border:1px solid rgba(255,255,255,0.2);border-radius:50%;color:#fff;font-size:1.2rem;position:absolute;top:10px;right:10px;display:flex;justify-content:center;align-items:center;transition:.2s}
+.m_close::before {content:'×'}
+.m_close:hover,.m_close:focus {background:#1f8efa;border-color:#1f8efa}
+
+.m_form {overflow:hidden;margin:8px 15px;position:relative;padding-left:150px;line-height:35px}
+.m_form2 {overflow:hidden;margin:8px 15px;position:relative;line-height:35px}
+.modal_con .label {display:block;color:#45729f;font-size:.938rem;font-weight:500;position:absolute;left:0;top:0px}
+.modal_con input[type="text"] {width:160px;height:35px;font-size:.875rem;border:1px solid #2f3b52;text-indent:5px;background:#293348;color:#fff;vertical-align:middle;box-sizing:border-box;padding:3px;line-height:40px}
+.modal_con select {width:160px;height:35px;padding:0 0 0 5px;font-size:.875rem;border:1px solid #2f3b52;color:#fff;-webkit-appearance: none;-moz-appearance:none;appearance:none;vertical-align:middle;background-image:url("../images/select.png");background-color:#293348;background-repeat:no-repeat;background-position:96% center;background-position:right 7px center}
+.modal_con label {color:#45729f;font-size:.938rem;font-weight:500}
+.modal_con label input[type=checkbox] {display:none}
+.modal_con label input[type=checkbox] + .label-text:before {content:"\f0c8";font-family:"Font Awesome 5 Free";speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;display:inline-block;margin-right:5px;color:#70889e;font-size:1.2rem;vertical-align:top;cursor:pointer}
+.modal_con label input[type=checkbox]:checked + .label-text:before {content:"\f14a";color:#1f8efa}
+.modal_con label input[type=checkbox]:before {content:"\f0c8";color:#293348}

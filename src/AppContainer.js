@@ -1,15 +1,15 @@
 import {BrowserRouter} from "react-router-dom";
 import App from "./App";
-import {DialogProvider} from "./components/common/popups/context/dialogContext";
-import Dialog from "./components/common/popups/Diglog"
+import {ModalProvider} from "./components/common/popups/context/modalContext";
+import Modal from "./components/common/popups/Modal";
 
 function AppContainer() {
   return (
     <BrowserRouter>
-      <DialogProvider>
-          <Dialog />
+      <ModalProvider>
+          <Modal />
           <App/>
-      </DialogProvider>
+      </ModalProvider>
     </BrowserRouter>
   )
 }
