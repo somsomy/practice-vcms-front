@@ -32,7 +32,6 @@ const ModalContent = ({onClose}) => {
   const onApply = () => {
     actions.handleSetRow(row)
     actions.handleSetCol(col)
-    console.log(row)
   }
 
   return (

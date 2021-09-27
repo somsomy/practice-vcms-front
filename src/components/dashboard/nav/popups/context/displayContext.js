@@ -19,12 +19,10 @@ export const DisplayProvider = ({children}) => {
 
   const handleSetRow = value => {
     setRow(value)
-    console.log(row)
   }
 
   const handleSetCol = value => {
     setCol(value)
-    console.log(col)
   }
 
   const initialState = {
