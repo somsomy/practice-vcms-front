@@ -7,8 +7,8 @@ const ModalContent = ({onClose}) => {
     <>
       <p className="modal_text">Arrange the patients in bed-number order?</p>
       <div className="modal_bottom">
-        <a href="#" className="modal_btn">Yes</a>
-        <a href="#" className="modal_btn" onClick={onClose}>No</a>
+        <button className="modal_btn">Yes</button>
+        <button className="modal_btn" onClick={onClose}>No</button>
       </div>
     </>
   )

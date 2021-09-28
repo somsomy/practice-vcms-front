@@ -12,6 +12,9 @@ function Modal() {
         <div className="modal_con">
           {options.content}
         </div>
+        {
+          options.bottom && <div className="modal_bottom">{options.bottom}</div>
+        }
         <a href="#" className="m_close" onClick={actions.handleClose}></a>
       </div>
     </div>
