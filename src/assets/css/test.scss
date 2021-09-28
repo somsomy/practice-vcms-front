@@ -11,20 +11,12 @@
   @for $i from 2 through 8 {
     &.col#{$i} {
       @include cols(115px, $i);
-
     }
   }
 }
 
 @function fontSize($n) {
-  @if ($n <= 5) {
-    @return 1.2rem
-  } @else if ($n == 6) {
-    @return 1rem
-  } @else if ($n == 7) {
-    @return 0.8rem
-  }
-  @return 0.6rem;
+  @return 1.1rem - (0.2 * $n - 1);
 }
 
 @function fontFunc($n) {
@@ -41,7 +33,7 @@
       //height: 0;
       //padding-bottom: calc(231.5 / 467.25  * 100%);
       height: calc((100vh - 146px) / #{$i});
-      min-height: calc((185px - (10px * (#{$i} - 1))));
+      min-height: calc((215px - (20px * (#{$i} - 3))));
       //min-height: 115px;
 
       h2 {
@@ -56,8 +48,28 @@
         .col_box {
           height: 100%;
 
+          &.pm {
+            flex-basis: 33.33%;
+          }
+
           .graph_container {
-            height: 33.33%;
+            height: calc(100% / 3);
+
+            &.pm4 {
+              height: 100%;
+
+              .graph_box {
+                height: 90%;
+              }
+            }
+
+            &.pm5 {
+              height: calc(100% / 2);
+
+              .graph_box {
+                height: 80%;
+              }
+            }
           }
 
           .graph_box {
@@ -66,7 +78,7 @@
           }
 
           h3 {
-            height: 40%;
+            height: max-content;
             line-height: calc((24px - (2px * (#{$i} - 1))));
             font-size: h3Font($i);
           }
@@ -79,8 +91,19 @@
               display: flex;
               justify-content: center;
               align-items: center;
-              height: 60%;
+              height: 70%;
               font-size: fontSize($i);
+              font-weight: 100;
+              //-webkit-transform: scale(0.7);
+            }
+
+            .tline {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 70%;
+              font-size: 0.4rem;
+              -webkit-transform: scale(0.9);
             }
           }
         }
@@ -125,52 +148,14 @@ $font: 20rem;
 }
 
 @media all and (max-width: 1200px) {
-  #nav .gnb ul {
-    padding: 20px 10px 10px;
-    overflow: hidden
-  }
-  #nav .gnb li {
-    width: calc(33.33% - 20px);
-    min-width: inherit
-  }
   #main .row .col.col3, #main .row .col.col4, #main .row .col.col5, #main .row .col.col6, #main .row .col.col8 {
     flex-basis: 50%
-  }
-  .scroll {
-    height: calc(100vh - 520px)
-  }
-}
-
-@media all and (max-width: 1100px) {
-  .scroll {
-    height: calc(100vh - 550px)
-  }
-  .zoom {
-    height: 332px
-  }
-  .zoom .z_btns ul {
-    padding: 12px 5px
-  }
-  .zoom .z_btns li {
-    width: 25%;
-    height: 35px;
-    margin: 2px 0
-  }
-  .zoom .z_btns li a {
-    font-size: 0.875rem;
-    line-height: 35px
   }
 }
 
 @media all and (max-width: 640px) {
-  #nav .gnb li {
-    width: calc(50% - 20px)
-  }
   #main .row .col.col2, #main .row .col.col3, #main .row .col.col4, #main .row .col.col5, #main .row .col.col6, #main .row .col.col8 {
     flex-basis: 100%;
     margin: -1px
-  }
-  .scroll {
-    height: calc(100vh - 610px)
   }
 }

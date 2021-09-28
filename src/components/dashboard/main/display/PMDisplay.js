@@ -1,65 +1,67 @@
-function PMDisplay({row, col}) {
+const wave = ["ECG", "SpO2", "RESP", "IBP", "CO2"]
+const numericData = [
+  {name: "HR", value: 72},
+  {name: "ST", value1: '+0.09', value2: '+0.09'},
+  {name: "TEMP", value1: 36.5,value2: 36.5},
+  {name: "Sp02", value: 98},
+  {name: "IBP1", value1: '119/79', value2: '(92)'},
+  {name: "IBP1", value1: '119/79', value2: '(92)'},
+  {name: "RESP", value: 13},
+  {name: "C02:E", value: 30},
+  {name: "NIBP", value1: '121/80', value2: '(94)'},
+]
+
+function PMDisplay({row, col, onContextMenu}) {
   return (
-    <div className={`col col${col}`}>
+    <div className={`col col${col}`} onContextMenu={onContextMenu}>
       <div className={`box_patient row${row}`}>
+        <h2>[101-PM] Patient ID: 12345678910</h2>
         <div className="cate">
-          <div className="col_box">
-            <h3>II</h3>
-            <div className="graph_box"></div>
+          <div className="col_box pm">
+            {
+              wave.map((item, idx) => {
+                if (idx <= 2) {
+                  return (
+                    <div className="graph_container" key={idx}>
+                      <h3>{item}</h3>
+                      <div className="graph_box"></div>
+                    </div>
+                  )
+                }
+              })
+            }
           </div>
-          <div className="col_box">
-            <div className="col_3">
-              <h3 className="co_01">HR</h3>
-              <span className="co_02">72</span>
-            </div>
-            <div className="col_3">
-              <h3 className="co_01">ST</h3>
-              <span className="tline co_02">+0.09<br/>+0.09</span>
-            </div>
-            <div className="col_3">
-              <h3 className="co_09">TEMP</h3>
-              <span className="tline co_10">36.5<br/>36.5</span>
-            </div>
-          </div>
-        </div>
-        <div className="cate">
-          <div className="col_box">
-            <h3>Sp02</h3>
-            <div className="graph_box"></div>
-          </div>
-          <div className="col_box">
-            <div className="col_3">
-              <h3 className="co_03">Sp02</h3>
-              <span className="co_04">98</span>
-            </div>
-            <div className="col_3">
-              <h3 className="co_07">IBP1</h3>
-              <span className="tline co_08">119/79<br/>(92)</span>
-            </div>
-            <div className="col_3">
-              <h3 className="co_07">IBP1</h3>
-              <span className="tline co_08">119/79<br/>(92)</span>
-            </div>
-          </div>
-        </div>
-        <div className="cate">
-          <div className="col_box">
-            <h3>RESP</h3>
-            <div className="graph_box"></div>
-          </div>
-          <div className="col_box">
-            <div className="col_3">
-              <h3 className="co_05">RESP</h3>
-              <span className="co_06">13</span>
-            </div>
-            <div className="col_3">
-              <h3 className="co_09">C02</h3>
-              <span className="co_10">30</span>
-            </div>
-            <div className="col_3">
-              <h3 className="co_09">NIBP</h3>
-              <span className="tline co_10">121/80<br/>(94)</span>
-            </div>
+          {
+            wave.length >= 4 &&
+              <div className="col_box pm">
+                {
+                  wave.map((item, idx) => {
+                    if (idx >= 3) {
+                      return (
+                        <div className={`graph_container pm${wave.length}`} key={idx}>
+                          <h3>{item}</h3>
+                          <div className="graph_box"></div>
+                        </div>
+                      )
+                    }
+                  })
+                }
+              </div>
+          }
+          <div className="col_box pm">
+            {
+              numericData.map((item, idx) => {
+                return (
+                  <div className="col_3" key={idx}>
+                    <h3 className="co_03">{item.name}</h3>
+                    {
+                      item.value1 && <div className="tline co_04">{item.value1}<br/>{item.value2}</div>
+                    }
+                    <div className="co_04">{item.value}</div>
+                  </div>
+                )
+              })
+            }
           </div>
         </div>
       </div>

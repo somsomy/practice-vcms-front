@@ -26,7 +26,7 @@ function LoginForm() {
           <input type="password" id="pass" placeholder="비밀번호"/>
         </div>
         <div className="form-group">
-          <span class="error_next_box">입력된 로그인 정보가 올바르지 않습니다.</span>
+          <span className="error_next_box">입력된 로그인 정보가 올바르지 않습니다.</span>
           <button className="btn_login" type="submit">LOGIN</button>
         </div>
       </form>
