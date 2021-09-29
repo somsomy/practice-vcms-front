@@ -1,9 +1,10 @@
 import '../../../../assets/css/test.scss';
-import ClickMenu from "../CustomContextMenu";
-import {useState} from "react";
 
-
-const wave = ["Pressure", "Flow", "Volume",]
+const wave = [
+  "Pressure",
+  "Flow",
+  "Volume",
+]
 const numericData = [
   {name: "Ppeak", value: 42},
   {name: "PEEP", value: 42},
@@ -28,9 +29,11 @@ function VentDisplay({row, col, onContextMenu}) {
               {
                 wave.map((item, idx) => {
                   return (
-                    <div className="graph_container" key={idx}>
+                    <div className={`graph_container vent_wave${wave.length}`} key={idx}>
                       <h3>{item}</h3>
-                      <div className="graph_box"></div>
+                      <div className="graph_box">
+
+                      </div>
                     </div>
                   )
                 })

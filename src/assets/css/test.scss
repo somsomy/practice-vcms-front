@@ -1,16 +1,10 @@
-@mixin cols($minHeight, $flexBasis) {
-  min-height: $minHeight;
-  flex-basis: flexBasis($flexBasis);
-}
-
-@function flexBasis($n) {
-  @return 100% / $n;
-}
+@use "sass:math";
 
 #main .row .col {
   @for $i from 2 through 8 {
     &.col#{$i} {
-      @include cols(115px, $i);
+      min-height: 115px;
+      flex-basis: calc(100% / #{$i});
     }
   }
 }
@@ -35,7 +29,6 @@
       height: calc((100vh - 146px) / #{$i});
       min-height: calc((215px - (20px * (#{$i} - 3))));
       //min-height: 115px;
-
       h2 {
         height: 15%;
         line-height: calc((30px - (2px * (#{$i} - 1))));
@@ -49,31 +42,15 @@
           height: 100%;
 
           &.pm {
-            flex-basis: 33.33%;
+            //flex-basis: 33.33%;
           }
 
           .graph_container {
             height: calc(100% / 3);
 
-            &.pm4 {
-              height: 100%;
-
-              .graph_box {
-                height: 90%;
-              }
-            }
-
-            &.pm5 {
-              height: calc(100% / 2);
-
-              .graph_box {
-                height: 80%;
-              }
-            }
           }
 
           .graph_box {
-            height: 60%;
             min-height: 18px;
           }
 
@@ -112,6 +89,60 @@
   }
 }
 
+.box_patient {
+  .cate {
+    .col_box {
+      .graph_container {
+        &.pm_wave4 {
+          height: calc(100% / 4);
+          h3 {
+            height: 10px;
+            line-height: 10px;
+            font-size: 0.4rem;
+          }
+          .graph_box {
+            height: 90%;
+          }
+        }
+        &.pm_wave5 {
+          height: calc(100% / 5);
+          h3 {
+            height: 10px;
+            line-height: 10px;
+            font-size: 0.4rem;
+          }
+          .graph_box {
+            height: 80%;
+          }
+        }
+
+        &.vent_wave1 {
+          height: 100%;
+        }
+        &.vent_wave2 {
+          height: calc(100% / 2);
+        }
+        &.vent_wave3 {
+          height: calc(100% / 3);
+        }
+
+        &.pm4 {
+          height: 100%;
+          .graph_box {
+            height: 90%;
+          }
+        }
+        &.pm5 {
+          height: calc(100% / 2);
+          .graph_box {
+            height: 80%;
+          }
+        }
+      }
+    }
+  }
+}
+
 $font: 20rem;
 
 @function noneFont($n) {
@@ -139,6 +170,11 @@ $font: 20rem;
       }
     }
   }
+}
+
+.react-contexify__item__content {
+  font-size: 0.8rem;
+  padding: 3px 8px !important;
 }
 
 @media all and (max-width: 1680px) {

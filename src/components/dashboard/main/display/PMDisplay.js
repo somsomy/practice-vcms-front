@@ -1,4 +1,11 @@
-const wave = ["ECG", "SpO2", "RESP", "IBP", "CO2"]
+import RechartsGraph from "../graph/RechartsGraph";
+import RenderLineChart from "../graph/RechartsGraph";
+
+const wave = [
+  "ECG", "SpO2", "RESP",
+  "CO2",
+  "O2"
+]
 const numericData = [
   {name: "HR", value: 72},
   {name: "ST", value1: '+0.09', value2: '+0.09'},
@@ -20,34 +27,36 @@ function PMDisplay({row, col, onContextMenu}) {
           <div className="col_box pm">
             {
               wave.map((item, idx) => {
-                if (idx <= 2) {
+                // if (idx <= 2) {
                   return (
-                    <div className="graph_container" key={idx}>
+                    <div className={`graph_container pm_wave${wave.length}`} key={idx}>
                       <h3>{item}</h3>
-                      <div className="graph_box"></div>
+                      <div className="graph_box">
+                        {/*<RenderLineChart />*/}
+                      </div>
                     </div>
                   )
-                }
+                // }
               })
             }
           </div>
-          {
-            wave.length >= 4 &&
-              <div className="col_box pm">
-                {
-                  wave.map((item, idx) => {
-                    if (idx >= 3) {
-                      return (
-                        <div className={`graph_container pm${wave.length}`} key={idx}>
-                          <h3>{item}</h3>
-                          <div className="graph_box"></div>
-                        </div>
-                      )
-                    }
-                  })
-                }
-              </div>
-          }
+          {/*{*/}
+          {/*  wave.length >= 4 &&*/}
+          {/*    <div className="col_box pm">*/}
+          {/*      {*/}
+          {/*        wave.map((item, idx) => {*/}
+          {/*          if (idx >= 3) {*/}
+          {/*            return (*/}
+          {/*              <div className={`graph_container pm${wave.length}`} key={idx}>*/}
+          {/*                <h3>{item}</h3>*/}
+          {/*                <div className="graph_box"></div>*/}
+          {/*              </div>*/}
+          {/*            )*/}
+          {/*          }*/}
+          {/*        })*/}
+          {/*      }*/}
+          {/*    </div>*/}
+          {/*}*/}
           <div className="col_box pm">
             {
               numericData.map((item, idx) => {
