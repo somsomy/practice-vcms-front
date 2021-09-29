@@ -2,9 +2,10 @@ import VentDisplay from "./display/VentDisplay";
 import PMDisplay from "./display/PMDisplay";
 import CustomContextMenu from "./CustomContextMenu";
 import {contextMenu, useContextMenu} from "react-contexify";
-import "react-contexify/dist/ReactContexify.css";
 import ZoomIn from "./display/ZoomIn";
 import {useState} from "react";
+
+import "react-contexify/dist/ReactContexify.css";
 
 const showMenu = e => {
   contextMenu.show({
@@ -42,12 +43,13 @@ function DisplayContainer({displayArray}) {
             [...Array(row * col)].map((item, idx) => {
               return (
                 ++idx % 2 === 0 ?
-                  <PMDisplay key={idx} row={row} col={col} onContextMenu={showMenu}/> :
+                  <PMDisplay key={idx} row={row} col={col} onContextMenu={showMenu}/>
+                  :
                   <VentDisplay key={idx} row={row} col={col} onContextMenu={showMenu}/>
-            )
+              )
             })
           }
-          <CustomContextMenu onShow={onShow} />
+          <CustomContextMenu onShow={onShow}/>
         </div>
       </div>
       <ZoomIn zoomIn={zoomIn} onShow={onShow}/>

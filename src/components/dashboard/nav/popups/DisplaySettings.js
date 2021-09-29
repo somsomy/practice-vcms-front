@@ -4,8 +4,8 @@ import {ModalContext} from "../../../common/popups/context/modalContext";
 import {DisplayContext} from "./context/displayContext";
 
 const displayArrays = [
-  "3X2",
-  "4X2", "4X4",
+  "3X2", "3X3",
+  "4X2", "4X4", "4X6",
   "5X2", "5X4",
   "6X4", "6X6",
   "7X4", "7X6",
@@ -47,7 +47,6 @@ const ModalContent = ({onClose}) => {
       <div className="m_form">
         <label className="label">Number of Display</label>
         <input type="text" id="num" value={row * col} disabled/>
-        <button style={{background: "#000"}}>alert</button>
       </div>
       <div className="m_form2">
         <label>

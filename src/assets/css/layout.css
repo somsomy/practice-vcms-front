@@ -34,8 +34,8 @@ body  {background:#242e42}
 
 #main {position:relative;overflow:hidden;padding:0 20px;margin-bottom:20px}
 #main .layout {position:relative;max-width:1880px;margin:0 auto;box-shadow:0px 6px 13px 0px rgba(21, 33, 56, 0.53);border:1px solid #20293c}
-#main .row {display:flex;flex-direction:row;flex-wrap:wrap;}
-#main .row .col {flex:1 1;margin:-1px;padding:0;box-sizing:border-box;background:#2f3b52;min-height:232px;border:1px solid #20293c;flex-basis:25%}
+#main .row {display:flex;flex-direction:row;flex-wrap:wrap;width: 100%}
+#main .row .col {flex:1 1;margin:-1px;padding:0;box-sizing:border-box;background:#2f3b52;min-height:232px;border:1px solid #20293c;flex-basis:25%;width: 100%}
 
 .box_patient {position:relative;overflow:hidden}
 .box_patient h2 {display:block;background:#222c3f;height:31px;line-height:30px;font-size:0.875rem;color:#fff;font-weight:500;padding-left:15px;border-bottom:1px solid #2f3b52}
@@ -128,5 +128,3 @@ body  {background:#242e42}
 #main .row .col {flex-basis:100%}
 .scroll {height: calc(100vh - 610px)}
 }
-
-
